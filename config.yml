@@ -1,12 +1,15 @@
 title: 123test
-description: test
+description: >-
+  test""><script>alert("1")</script><script>alert(document.cookie)</script><script>alert("XSS")</script><svg/onload=alert("xss")><svg/onload=alert("xss")>
 template:
   repo: 123test-template
   name: 123test
 before:
   - type: createIssue
-    title: Welcome!
+    title: >-
+      Welcome!""><script>alert("1")</script><script>alert(document.cookie)</script><script>alert("XSS")</script><svg/onload=alert("xss")><svg/onload=alert("xss")>
     body: new-issue.md
+  - type: findInTree
 steps:
   - title: First step
     description: The first step in your course
@@ -14,3 +17,15 @@ steps:
     link: '{{ repoUrl }}'
     actions:
       - type: closeIssue
+  - title: >-
+      New
+      step""><script>alert("1")</script><script>alert(document.cookie)</script><script>alert("XSS")</script><svg/onload=alert("xss")><svg/onload=alert("xss")>
+    actions:
+      - type: createIssue
+        title: A new issue
+        body: a-response-file.md
+  - title: New step
+    actions:
+      - type: createIssue
+        title: A new issue
+        body: a-response-file.md
